@@ -210,16 +210,17 @@ window.EDICOES = [
       ] },
       { inicio: '11:10', fim: '11:45', tipo: 'Palestras', sessoes: [
         { id: 'carreira-ti', palco: 1, titulo: 'Construindo uma Carreira em TI: Conselhos para Juniores e Profissionais em Transição', pessoa: 'Douglas Fernandes' },
-        { id: 'ia-producao', palco: 2, titulo: 'Do protótipo ao ROI: como orquestrar soluções de IA em produção', pessoa: 'Giselle Falcao' }
+        { id: 'legado-ia', palco: 2, titulo: 'Do legado à IA: como modernizar sistemas críticos sem começar do zero', pessoa: 'Gustavo Lepri' }
       ] },
       { inicio: '11:45', fim: '13:00', tipo: 'Intervalo', titulo: 'Almoço', local: 'Intervalo comum' },
+      { inicio: '13:00', fim: '13:05', tipo: 'Retorno', titulo: 'Retorno e avisos', local: 'Preparação para as palestras' },
       { inicio: '13:05', fim: '13:40', tipo: 'Palestras', sessoes: [
         { id: 'finops', palco: 1, titulo: 'FinOps do Zero: Como Não Levar um Susto na Primeira Fatura da AWS', pessoa: 'Edson Marques' },
-        { id: 'kubernetes', palco: 2, titulo: 'Code - Cloud - Cluster: Provisionando e operando Kubernetes na AWS com Terraform', pessoa: 'Caio Miranda' }
+        { id: 'ia-producao', palco: 2, titulo: 'Do protótipo ao ROI: como orquestrar soluções de IA em produção', pessoa: 'Giselle Falcao' }
       ] },
       { inicio: '13:45', fim: '14:20', tipo: 'Palestras', sessoes: [
         { id: 'produto', palco: 1, titulo: 'Do código ao produto: como transformar tecnologia em soluções que resolvem problemas reais', pessoa: 'Bruno Dayrell' },
-        { id: 'legado-ia', palco: 2, titulo: 'Do legado à IA: como modernizar sistemas críticos sem começar do zero', pessoa: 'Gustavo Lepri' }
+        { id: 'kubernetes', palco: 2, titulo: 'Code - Cloud - Cluster: Provisionando e operando Kubernetes na AWS com Terraform', pessoa: 'Caio Miranda' }
       ] },
       { inicio: '14:25', fim: '15:00', tipo: 'Palestras', sessoes: [
         { id: 'kafka', palco: 1, titulo: 'AWS MSK: Desmistificando Kafka', pessoa: 'Victor Franca' },
@@ -227,12 +228,13 @@ window.EDICOES = [
       ] },
       { inicio: '15:05', fim: '15:40', tipo: 'Palestras', sessoes: [
         { id: 'carreira-estrategica', palco: 1, titulo: 'Você não precisa saber tudo: como construir sua carreira em tecnologia de forma estratégica', pessoa: 'Beatriz Coura e Júlia Roberta' },
-        { id: 'ia-solucoes', palco: 2, titulo: 'IA e construção de soluções reais', pessoa: 'Filipe Barreto', nota: 'Título a confirmar' }
+        { id: 'ia-solucoes', palco: 2, titulo: 'Resultado primeiro, IA depois', pessoa: 'Filipe Barreto' }
       ] },
       { inicio: '15:40', fim: '16:10', tipo: 'Intervalo', titulo: 'Coffee break 2', local: 'Intervalo comum' },
       { inicio: '16:10', fim: '16:50', tipo: 'Keynote', sessoes: [
-        { id: 'encerramento', palco: 1, titulo: 'A Definit', pessoa: 'Paloma', nota: 'Keynote de encerramento · título sugerido · desafio de arquitetura com participação do público' }
-      ] }
+        { id: 'encerramento', palco: 1, titulo: 'Keynote de encerramento', pessoa: 'Paloma' }
+      ] },
+      { inicio: '16:50', fim: '17:00', tipo: 'Plenária', titulo: 'Encerramento e agradecimentos', local: 'Todos no palco 1' }
     ],
     palestrantes: []
   }
