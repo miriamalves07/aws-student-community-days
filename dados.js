@@ -205,6 +205,28 @@ window.EDICOES = [
       { nome: 'Vinícius de Andrade ', funcao: 'Core Team', foto: '../assets/belo-horizonte/organizadores/Vinicius.jpeg', linkedin: 'https://www.linkedin.com/in/vinic-andrade/' }
     ],
     
+        /* ---- almoço com desconto (é só apresentar o crachá do evento) ---- */
+    almoco: [
+      {
+        nome: 'A Granel',
+        url: 'https://www.instagram.com/agranelrestaurante',
+        linkTexto: 'Ver no Instagram',
+        ofertas: ['5% de desconto', 'A 3 min a pé do campus']
+      },
+      {
+        nome: 'Coreu Food Drinks',
+        url: 'https://www.instagram.com/coreufooddrink/',
+        linkTexto: 'Ver no Instagram',
+        ofertas: ['7% de desconto no cartão de crédito ou débito', '12% de desconto no dinheiro', 'A 1 min a pé do campus']
+      },
+      {
+        nome: 'Coreu Bar e Restaurante',
+        url: 'https://www.instagram.com/coreu.barerestaurante/',
+        linkTexto: 'Ver no Instagram',
+        ofertas: ['Almoço a R$ 26,90, sem balança', 'A 4 min a pé do campus']
+      }
+    ],
+
     // null = usa TRILHAS_PADRAO.
     trilhas: null,
 
