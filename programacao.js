@@ -148,21 +148,30 @@
       "</div></details></article>"
     );
   }
+
   var almoco = edicao.almoco || [];
 
   grade.innerHTML = blocos
     .map(function (b) {
       var horario = A.esc(b.inicio + " – " + b.fim);
       if (!b.sessoes) {
-        return (
-          '<div class="agenda-intervalo"><span>' +
+        var conteudo =
+          "<span>" +
           horario +
           "</span><strong>" +
           A.esc(b.titulo) +
           "</strong><span>" +
           A.esc(b.local) +
-          "</span></div>"
-        );
+          "</span>";
+        // A linha do almoço vira um botão que abre o modal, se houver restaurantes.
+        if (almoco.length && /^almo/i.test(b.titulo)) {
+          return (
+            '<button type="button" class="agenda-intervalo agenda-intervalo-botao" id="almoco-abrir" aria-haspopup="dialog">' +
+            conteudo +
+            '<span class="agenda-intervalo-dica">Ver opções com desconto</span></button>'
+          );
+        }
+        return '<div class="agenda-intervalo">' + conteudo + "</div>";
       }
       b.sessoes.forEach(function (s) {
         sessoes.push(Object.assign({}, s, { inicio: b.inicio, fim: b.fim }));
@@ -182,6 +191,52 @@
       );
     })
     .join("");
+
+  // Modal "Onde almoçar": abre ao clicar na linha do almoço
+  var modalAlmoco = document.getElementById("almoco-modal");
+  var abrirAlmoco = document.getElementById("almoco-abrir");
+  var listaAlmoco = document.getElementById("almoco-lista");
+  if (modalAlmoco && abrirAlmoco && listaAlmoco) {
+    listaAlmoco.innerHTML = almoco
+      .map(function (l) {
+        return (
+          '<li class="almoco-card"><h4>' +
+          A.esc(l.nome) +
+          "</h4><ul>" +
+          (l.ofertas || [])
+            .map(function (o) {
+              return "<li>" + A.esc(o) + "</li>";
+            })
+            .join("") +
+          "</ul>" +
+          (l.url
+            ? '<a class="almoco-link" href="' +
+              A.esc(l.url) +
+              '" target="_blank" rel="noopener noreferrer">' +
+              A.esc(l.linkTexto || "Ver mais") +
+              "</a>"
+            : "") +
+          "</li>"
+        );
+      })
+      .join("");
+
+    var fecharAlmoco = function () {
+      if (typeof modalAlmoco.close === "function") modalAlmoco.close();
+      else modalAlmoco.removeAttribute("open");
+    };
+    abrirAlmoco.addEventListener("click", function () {
+      if (typeof modalAlmoco.showModal === "function") modalAlmoco.showModal();
+      else modalAlmoco.setAttribute("open", "");
+    });
+    document
+      .getElementById("almoco-fechar")
+      .addEventListener("click", fecharAlmoco);
+    // Clicar fora da caixa (no fundo escurecido) também fecha
+    modalAlmoco.addEventListener("click", function (e) {
+      if (e.target === modalAlmoco) fecharAlmoco();
+    });
+  }
 
   escolhas.innerHTML = blocos
     .filter(function (b) {
